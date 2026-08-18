@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBoard - Premium</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Socket.IO CDN -->
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <span class="logo-icon">✋</span>
+                <h1>AirBoard <span class="badge">Premium</span></h1>
+            </div>
+            <div class="header-actions">
+                <span id="connection-status" class="status-badge disconnected">⚪ Disconnected</span>
+            </div>
+        </div>
+        
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-label">Status</span>
+                <span id="status" class="status-value status-off">Disconnected</span>
+            </div>
+            <div class="status-divider"></div>
+            <div class="status-item">
+                <span class="status-label">Typing Mode</span>
+                <span id="typing-mode" class="status-value mode-off">⛔ OFF</span>
+            </div>
+            <div class="status-divider"></div>
+            <div class="status-item">
+                <span class="status-label">Gesture</span>
+                <span id="gesture-display" class="status-value">✋ None</span>
+            </div>
+        </div>
+        
+        <!-- Text Display -->
+        <div class="text-display">
+            <div class="text-header">
+                <span class="text-icon">📝</span>
+                <span class="text-title">Text Input</span>
+            </div>
+            <div id="text-output" class="text-output">Type in the air...</div>
+        </div>
+        
+        <!-- Virtual Keyboard -->
+        <div class="keyboard">
+            <!-- Row 1 -->
+            <div class="key-row">
+                <div class="key" data-key="q">Q</div>
+                <div class="key" data-key="w">W</div>
+                <div class="key" data-key="e">E</div>
+                <div class="key" data-key="r">R</div>
+                <div class="key" data-key="t">T</div>
+                <div class="key" data-key="y">Y</div>
+                <div class="key" data-key="u">U</div>
+                <div class="key" data-key="i">I</div>
+                <div class="key" data-key="o">O</div>
+                <div class="key" data-key="p">P</div>
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="key-row">
+                <div class="key key-offset" data-key="a">A</div>
+                <div class="key" data-key="s">S</div>
+                <div class="key" data-key="d">D</div>
+                <div class="key" data-key="f">F</div>
+                <div class="key" data-key="g">G</div>
+                <div class="key" data-key="h">H</div>
+                <div class="key" data-key="j">J</div>
+                <div class="key" data-key="k">K</div>
+                <div class="key" data-key="l">L</div>
+            </div>
+            
+            <!-- Row 3 -->
+            <div class="key-row">
+                <div class="key key-offset-2" data-key="z">Z</div>
+                <div class="key" data-key="x">X</div>
+                <div class="key" data-key="c">C</div>
+                <div class="key" data-key="v">V</div>
+                <div class="key" data-key="b">B</div>
+                <div class="key" data-key="n">N</div>
+                <div class="key" data-key="m">M</div>
+            </div>
+            
+            <!-- Row 4 -->
+            <div class="key-row">
+                <div class="key key-wide" data-key="space">SPACE</div>
+                <div class="key key-medium" data-key="back">⌫ BACK</div>
+                <div class="key key-medium" data-key="enter">↵ ENTER</div>
+            </div>
+        </div>
+        
+        <!-- Gesture Guide -->
+        <div class="gesture-guide">
+            <div class="gesture-card">
+                <div class="gesture-icon">✋✋</div>
+                <div class="gesture-info">
+                    <div class="gesture-name">Two Open Palms</div>
+                    <div class="gesture-action">Toggle Typing</div>
+                </div>
+            </div>
+            <div class="gesture-card">
+                <div class="gesture-icon">👍</div>
+                <div class="gesture-info">
+                    <div class="gesture-name">Thumbs Up</div>
+                    <div class="gesture-action">Enter / Submit</div>
+                </div>
+            </div>
+            <div class="gesture-card">
+                <div class="gesture-icon">✌️</div>
+                <div class="gesture-info">
+                    <div class="gesture-name">Peace Sign</div>
+                    <div class="gesture-action">Read Aloud</div>
+                </div>
+            </div>
+            <div class="gesture-card">
+                <div class="gesture-icon">👊</div>
+                <div class="gesture-info">
+                    <div class="gesture-name">Fist</div>
+                    <div class="gesture-action">Backspace</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <span>✨ Type anywhere. Touch nothing.</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

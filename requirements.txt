@@ -1,0 +1,9 @@
+opencv-python
+mediapipe
+pyautogui
+pyttsx3
+flask
+websockets
+scikit-learn
+numpy
+pandas
